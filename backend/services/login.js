@@ -1,14 +1,14 @@
+import { InvalidArgumentException
+    
+ } from "../exceptions/invalid_argument_exception";
 export async function loginService(credentials){
     if (!credentials
         || !credentials.username
         || !credentials.password
         || typeof credentials.username != 'string'
         || typeof credentials.password != 'string'
-    ){
-        return{
-            error: 'Argumentos invalidos',
-        };
-    }
+    )
+        throw new InvalidArgumentException();
     if (credentials.username !== 'admin'){
         return{
             error: 'credenciales invalidas',
