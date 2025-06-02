@@ -1,18 +1,20 @@
-export function loginService(username, password){
-    if (!username || !password
-        || typeof username != 'string'
-        || typeof password != 'string'
+export async function loginService(credentials){
+    if (!credentials
+        || !credentials.username
+        || !credentials.password
+        || typeof credentials.username != 'string'
+        || typeof credentials.password != 'string'
     ){
         return{
             error: 'Argumentos invalidos',
         };
     }
-    if (username !== 'admin'){
+    if (credentials.username !== 'admin'){
         return{
             error: 'credenciales invalidas',
         }
     };
-    if (password !== '1234'){
+    if (credentials.password !== '1234'){
         return{
             error: 'credenciales invalidas',
         }
